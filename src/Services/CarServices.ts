@@ -11,8 +11,13 @@ export default class CarServices {
 
   public async getAllCars() {
     const carODM = new CarModel();
-    const result = carODM.getAllCars();
-    const returnInfo = await Promise.resolve(result);
+    const returnInfo = await carODM.getAllCars();
+    return { status: 200, returnInfo };
+  }
+
+  public async getCarById(id: string) {
+    const carODM = new CarModel();
+    const returnInfo = await carODM.getCarById(id);
     return { status: 200, returnInfo };
   }
 }
