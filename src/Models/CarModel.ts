@@ -19,7 +19,18 @@ export default class CarModel {
   }
 
   public async addCar(carInfo: CarInterface): Promise<CarInterface> {
-    const newCar = await this.model.create({ ...carInfo });
-    return newCar;
+    const addedCar = await this.model.create({ ...carInfo });
+    
+    return addedCar;
+  }
+
+  public async getAllCars(): Promise<CarInterface[]> {
+    const cars = await this.model.find();
+    return cars;
+  }
+
+  public async getCarById(id: string) {
+    const car = await this.model.findById(id);
+    return car;
   }
 }
