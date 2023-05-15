@@ -20,6 +20,16 @@ const wrongCarInfo = {
   doorsQty: 4,
 };
 
+const updateInfo = {
+  year: 2000,
+  model: 'Fox',
+  status: true,
+  color: 'Golden',
+  buyValue: 28.000,
+  seatsQty: 5,
+  doorsQty: 4,
+};
+
 const allCars = [
   {
     id: '1',
@@ -46,5 +56,6 @@ const allCars = [
 export default {
   carInfo,
   wrongCarInfo,
+  updateInfo,
   allCars,
 };

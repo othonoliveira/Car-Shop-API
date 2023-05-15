@@ -7,7 +7,7 @@ import CarServices from '../../src/Services/CarServices';
 
 const carService = new CarServices();
 
-describe('Car service', function () {
+describe('Tests for Car Services', function () {
   afterEach(function () {
     sinon.restore();
   });
@@ -42,5 +42,13 @@ describe('Car service', function () {
     const { returnInfo } = await carService.getAllCars();
 
     expect(returnInfo).to.be.deep.equal(carMocks.allCars);
+  });
+
+  it('should be possible to update a car', async function () {
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(carMocks.carInfo);
+
+    const { returnInfo } = await carService.updateCar('13', carMocks.carInfo);
+
+    expect(returnInfo).to.be.deep.equal(carMocks.carInfo);
   });
 });

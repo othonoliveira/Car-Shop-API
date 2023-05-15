@@ -7,7 +7,7 @@ import MotorcycleServices from '../../src/Services/MotorcycleServices';
 
 const motorcycleService = new MotorcycleServices();
 
-describe('Motor service', function () {
+describe('Tests for Motorcycle Services', function () {
   afterEach(function () {
     sinon.restore();
   });
@@ -23,8 +23,9 @@ describe('Motor service', function () {
   it('should be possible to retrieve a motorcycle', async function () {
     sinon.stub(Model, 'findById').resolves(motorcyclyMocks.motorcycleInfo);
 
-    const { returnInfo } = await motorcycleService.getMotorcycleById('13');
+    const { status, returnInfo } = await motorcycleService.getMotorcycleById('13');
 
+    expect(status).to.be.deep.equal(200);
     expect(returnInfo).to.be.deep.equal(motorcyclyMocks.motorcycleInfo);
   });
 
