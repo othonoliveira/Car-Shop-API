@@ -20,4 +20,10 @@ export default class CarServices {
     const returnInfo = await carODM.getCarById(id);
     return { status: 200, returnInfo };
   }
+
+  public async updateCar(id: string, updateInfo: CarInterface) {
+    const carODM = new CarModel();
+    const returnInfo = await carODM.updateCar(id, updateInfo);
+    return { status: 200, returnInfo };
+  }
 }

@@ -32,6 +32,13 @@ export default class CarModel {
 
   public async getCarById(id: string) {
     const car = await this.model.findById(id);
+
     return car;
+  }
+
+  public async updateCar(_id: string, updateInfo: CarInterface) {
+    const updatedCar = await this.model.findByIdAndUpdate(_id, { ...updateInfo });
+
+    return updatedCar;
   }
 }
