@@ -20,4 +20,10 @@ export default class MotorcycleServices {
     const returnInfo = await carODM.getMotorcycleById(id);
     return { status: 200, returnInfo };
   }
+
+  public async updateMotorcycle(id: string, updateInfo: MotorcycleInterface) {
+    const carODM = new MotorcycleModel();
+    const returnInfo = await carODM.updateMotorcycle(id, updateInfo);
+    return { status: 200, returnInfo };
+  }
 }

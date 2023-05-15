@@ -35,4 +35,10 @@ export default class MotorcycleModel {
 
     return motorcycle;
   }
+
+  public async updateMotorcycle(_id: string, updateInfo: MotorcycleInterface) {
+    const updatedMotorcycle = await this.model.findByIdAndUpdate(_id, { ...updateInfo });
+
+    return updatedMotorcycle;
+  }
 }
