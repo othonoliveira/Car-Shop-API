@@ -6,7 +6,6 @@ interface CarInterface {
   status?: boolean,
   color: string,
   buyValue: number,
-  message?: string
   seatsQty: number,
   doorsQty: number,
 }

@@ -54,8 +54,10 @@ export default class CarController {
   public updateCar = async (req: Request, res: Response, next: NextFunction) => {
     const { id } = req.params;
     const updateInfo = req.body;
+    
     const isValid = isValidObjectId(id);
     if (!isValid) return res.status(422).json({ message: 'Invalid mongo id' });
+
     try {
       await this.carService.updateCar(id, updateInfo);
       const { status, returnInfo } = await this.carService.getCarById(id);
