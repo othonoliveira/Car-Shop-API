@@ -23,4 +23,16 @@ export default class MotorcycleModel {
     
     return addedMotorcycle;
   }
+
+  public async getAllMotorcycles() {
+    const motorcycles = await this.model.find();
+    
+    return motorcycles;
+  }
+
+  public async getMotorcycleById(id: string) {
+    const motorcycle = await this.model.findById(id);
+
+    return motorcycle;
+  }
 }

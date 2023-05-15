@@ -8,4 +8,16 @@ export default class MotorcycleServices {
     const returnInfo = await Promise.resolve(result);
     return { statusHTTP: 201, returnInfo };
   }
+
+  public async getAllMotorcycles() {
+    const carODM = new MotorcycleModel();
+    const returnInfo = await carODM.getAllMotorcycles();
+    return { status: 200, returnInfo };
+  }
+
+  public async getMotorcycleById(id: string) {
+    const carODM = new MotorcycleModel();
+    const returnInfo = await carODM.getMotorcycleById(id);
+    return { status: 200, returnInfo };
+  }
 }
