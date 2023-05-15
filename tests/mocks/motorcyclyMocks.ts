@@ -11,6 +11,16 @@ const motorcycleInfo: MotorcycleInterface = {
   engineCapacity: 1000,
 };
 
+const updateInfo: MotorcycleInterface = {
+  model: 'Bugatti',
+  year: 2013,
+  color: 'Blue',
+  status: true,
+  buyValue: 150.00,
+  category: 'Street',
+  engineCapacity: 1000,
+};
+
 const wrongMotorcycleInfo: MotorcycleInterface = {
   id: '22',
   model: 'Bugatti',
@@ -48,5 +58,6 @@ const allMotorcycles = [
 export default {
   motorcycleInfo,
   wrongMotorcycleInfo,
+  updateInfo,
   allMotorcycles,
 };

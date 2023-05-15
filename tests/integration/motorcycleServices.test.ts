@@ -1,5 +1,5 @@
-import { Model } from 'mongoose';
 import { expect } from 'chai';
+import { Model } from 'mongoose';
 import sinon from 'sinon';
 import motorcyclyMocks from '../mocks/motorcyclyMocks';
 
@@ -43,5 +43,16 @@ describe('Tests for Motorcycle Services', function () {
     const { returnInfo } = await motorcycleService.getAllMotorcycles();
 
     expect(returnInfo).to.be.deep.equal(motorcyclyMocks.allMotorcycles);
+  });
+
+  it('should be possible to update a motorcycle', async function () {
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(motorcyclyMocks.motorcycleInfo);
+
+    const { returnInfo } = await motorcycleService.updateMotorcycle(
+      '13',
+      motorcyclyMocks.updateInfo,
+    );
+
+    expect(returnInfo).to.be.deep.equal(motorcyclyMocks.motorcycleInfo);
   });
 });
